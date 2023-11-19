@@ -1,0 +1,52 @@
+﻿@page
+@model ParcialLenguajeInformatico.Pages.Consultas.CreateModel
+@{
+    ViewData["Title"] = "Create Consultas";
+}
+<h1>Create</h1>
+<h4>Consultas</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="consulta.NombreConsulta" class="control-label"></label>
+                <input asp-for="consulta.NombreConsulta" class="form-control" />
+                <span asp-validation-for="consulta.NombreConsulta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="consulta.Fecha" class="control-label"></label>
+                <input asp-for="consulta.Fecha" class="form-control" />
+                <span asp-validation-for="consulta.Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="consulta.NombreMedico" class="control-label"></label>
+                <input asp-for="consulta.NombreMedico" class="form-control" />
+                <span asp-validation-for="consulta.NombreMedico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="consulta.Observacion" class="control-label"></label>
+                <input asp-for="consulta.Observacion" class="form-control" />
+                <span asp-validation-for="consulta.Observacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="consulta.PacienteId" class="control-label"></label>
+                <select asp-for="consulta.PacienteId" asp-items="Model.ListaPacientes" class="form-control">
+                    <option value="">Select Paciente</option>
+                </select>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-success" />
+                <a asp-page="Index" class="btn btn-primary">Back to list</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
